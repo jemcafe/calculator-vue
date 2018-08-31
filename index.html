@@ -15,34 +15,34 @@
       <textarea v-bind:value="equation"></textarea>
       <div class="btns">
         <div class="row">
-          <div class="btn blue-btn" v-on:click="clearInput">C</div>
-          <div class="btn dark-btn" v-on:click="insertChar('/')">&divide;</div>
-          <div class="btn dark-btn" v-on:click="insertChar('x')">&times;</div>
-          <div class="btn dark-btn" v-on:click="deleteChar">&laquo;</div>
+          <button class="blue-btn" v-on:click="clearInput">C</button>
+          <button class="dark-btn" v-on:click="insertChar('/')">&divide;</button>
+          <button class="dark-btn" v-on:click="insertChar('x')">&times;</button>
+          <button class="dark-btn" v-on:click="deleteChar">&laquo;</button>
         </div>
         <div class="row">
-          <div class="btn light-btn" v-on:click="insertChar(7)">7</div>
-          <div class="btn light-btn" v-on:click="insertChar(8)">8</div>
-          <div class="btn light-btn" v-on:click="insertChar(9)">9</div>
-          <div class="btn dark-btn" v-on:click="insertChar('-')">&minus;</div>
+          <button class="light-btn" v-on:click="insertChar(7)">7</button>
+          <button class="light-btn" v-on:click="insertChar(8)">8</button>
+          <button class="light-btn" v-on:click="insertChar(9)">9</button>
+          <button class="dark-btn" v-on:click="insertChar('-')">&minus;</button>
         </div>
         <div class="row">
-          <div class="btn light-btn" v-on:click="insertChar(4)">4</div>
-          <div class="btn light-btn" v-on:click="insertChar(5)">5</div>
-          <div class="btn light-btn" v-on:click="insertChar(6)">6</div>
-          <div class="btn dark-btn" v-on:click="insertChar('+')">&plus;</div>
+          <button class="light-btn" v-on:click="insertChar(4)">4</button>
+          <button class="light-btn" v-on:click="insertChar(5)">5</button>
+          <button class="light-btn" v-on:click="insertChar(6)">6</button>
+          <button class="dark-btn" v-on:click="insertChar('+')">&plus;</button>
         </div>
         <div class="row">
-          <div class="btn light-btn" v-on:click="insertChar(1)">1</div>
-          <div class="btn light-btn" v-on:click="insertChar(2)">2</div>
-          <div class="btn light-btn" v-on:click="insertChar(3)">3</div>
-          <div class="btn dark-btn">( )</div>
+          <button class="light-btn" v-on:click="insertChar(1)">1</button>
+          <button class="light-btn" v-on:click="insertChar(2)">2</button>
+          <button class="light-btn" v-on:click="insertChar(3)">3</button>
+          <button class="dark-btn">( )</button>
         </div>
         <div class="row">
-          <div class="btn light-btn" v-on:click="insertChar(0)">0</div>
-          <div class="btn light-btn" v-on:click="insertChar('.')">.</div>
-          <div class="btn light-btn">&plus;/&minus;</div>
-          <div class="btn green-btn">&equals;</div>
+          <button class="light-btn" v-on:click="insertChar(0)">0</button>
+          <button class="light-btn" v-on:click="insertChar('.')">.</button>
+          <button class="light-btn">&plus;/&minus;</button>
+          <button class="green-btn">&equals;</button>
         </div>
       </div>
     </div>
@@ -117,7 +117,7 @@
 
     #calculator .row { display: flex; }
 
-    #calculator .btn {
+    #calculator .row > button {
       flex: 1;
       margin: 1px;
       font-size: 24px;
@@ -130,7 +130,7 @@
       user-select: none;  
     }
 
-    #calculator .btn:active { background: #b4bcff; }
+    #calculator .row > .button:active { background: #b4bcff; }
   </style>
 </body>
 </html>

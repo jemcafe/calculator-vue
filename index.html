@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Calculator</title>
+  <!-- VueJs -->
+  <script src="vue.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <div id="calculator">
+      <!-- <input type="text" value="equation" v-on:input="changeInput"> -->
+      <textarea v-bind:value="equation"></textarea>
+      <div class="btns">
+        <div class="row">
+          <div class="btn blue-btn" v-on:click="clearInput">C</div>
+          <div class="btn dark-btn" v-on:click="insertChar('/')">&divide;</div>
+          <div class="btn dark-btn" v-on:click="insertChar('x')">&times;</div>
+          <div class="btn dark-btn" v-on:click="deleteChar">&laquo;</div>
+        </div>
+        <div class="row">
+          <div class="btn light-btn" v-on:click="insertChar(7)">7</div>
+          <div class="btn light-btn" v-on:click="insertChar(8)">8</div>
+          <div class="btn light-btn" v-on:click="insertChar(9)">9</div>
+          <div class="btn dark-btn" v-on:click="insertChar('-')">&minus;</div>
+        </div>
+        <div class="row">
+          <div class="btn light-btn" v-on:click="insertChar(4)">4</div>
+          <div class="btn light-btn" v-on:click="insertChar(5)">5</div>
+          <div class="btn light-btn" v-on:click="insertChar(6)">6</div>
+          <div class="btn dark-btn" v-on:click="insertChar('+')">&plus;</div>
+        </div>
+        <div class="row">
+          <div class="btn light-btn" v-on:click="insertChar(1)">1</div>
+          <div class="btn light-btn" v-on:click="insertChar(2)">2</div>
+          <div class="btn light-btn" v-on:click="insertChar(3)">3</div>
+          <div class="btn dark-btn">( )</div>
+        </div>
+        <div class="row">
+          <div class="btn light-btn" v-on:click="insertChar(0)">0</div>
+          <div class="btn light-btn" v-on:click="insertChar('.')">.</div>
+          <div class="btn light-btn">&plus;/&minus;</div>
+          <div class="btn green-btn">&equals;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#calculator',
+      data: {
+        equation: ''
+      },
+      methods: {
+        insertChar: function(char){
+          if (char === '.' && this.equation.indexOf('.') !== -1 ) {
+            // this.equation = this.equation;
+          } else { 
+            this.equation += char;
+          }
+        },
+        deleteChar: function(){
+          return null;
+        },
+        clearInput: function(){
+          this.equation = '';
+        }
+      }
+    })
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: arial, sans-serif;
+      text-align: center;
+    }
+
+    input[type=text], textarea {
+      resize: none;
+      outline: none;
+      border: none;
+      padding: 6px 4px;
+      box-sizing: border-box;
+      font-size: 24px;
+      text-align: right;
+      background: transparent; 
+      color: #fff;
+      text-shadow: 0 0 0 #fff;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .wrapper {
+      display: flex;
+      justify-content: center;
+    }
+
+    .light-btn { background: #919191; }
+    .dark-btn { background: #616161; }
+    .blue-btn { background: #6b6bda; }
+    .green-btn { background: #34d15b; }
+
+    #calculator {
+      display: flex;
+      flex-direction: column;
+      color: #fff;
+      border: 4px solid #616161;;
+      padding: 2px;
+      box-sizing: border-box;
+      white-space: nowrap;
+      background: rgb(36, 36, 36);
+    }
+
+    #calculator .row { display: flex; }
+
+    #calculator .btn {
+      flex: 1;
+      margin: 1px;
+      font-size: 24px;
+      padding: 12px;
+      box-sizing: border-box;
+      cursor: pointer;
+      -webkit-user-select: none;  /* Chrome all / Safari all */
+      -moz-user-select: none;     /* Firefox all */
+      -ms-user-select: none;      /* IE 10+ */
+      user-select: none;  
+    }
+
+    #calculator .btn:active { background: #b4bcff; }
+  </style>
+</body>
+</html>
